@@ -34,12 +34,10 @@ namespace DevTalks1.Controllers
         {
             var wrapped = new WrappedRequest<MOTD.Request, MOTD.Response>(request);
             var result = await this.Mediator.Send(wrapped);
-
             if (result.IsError)
             {
                 return this.StatusCode(result.Error.Status, result.Error);
             }
-
             return result.Response;
         }
 
@@ -49,6 +47,8 @@ namespace DevTalks1.Controllers
         /// <param name="request">Identifies the requested message type, either joke or quote</param>
         /// <returns>A message of the requested type</returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<MOTD.Response>> MOTD(MOTD.Request.MessageType type)
         {
             var wrapped = new WrappedRequest<MOTD.Request, MOTD.Response>(
@@ -57,14 +57,11 @@ namespace DevTalks1.Controllers
                     Type = type
                 }
             );
-
             var result = await this.Mediator.Send(wrapped);
-
             if (result.IsError)
             {
                 return this.StatusCode(result.Error.Status, result.Error);
             }
-
             return result.Response;
         }
     }

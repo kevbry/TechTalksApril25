@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevTalks1</name>
+    </assembly>
+    <members>
+        <member name="M:DevTalks1.Controllers.StartupController.MOTD(ViewModels.Features.Startup.MOTD.Request)">
+            <summary>
+            Fetches either a joke or a quote, depending on the requested message type
+            </summary>
+            <param name="request">Identifies the requested message type, either joke or quote</param>
+            <returns>A message of the requested type</returns>
+        </member>
+        <member name="M:DevTalks1.Controllers.StartupController.MOTD(ViewModels.Features.Startup.MOTD.Request.MessageType)">
+            <summary>
+            Fetches either a joke or a quote, depending on the requested message type
+            </summary>
+            <param name="request">Identifies the requested message type, either joke or quote</param>
+            <returns>A message of the requested type</returns>
+        </member>
+    </members>
+</doc>

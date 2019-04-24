@@ -24,7 +24,7 @@ namespace RequestHandlers.Features.Startup
         {
             if (request.Request.Type == MOTD.Request.MessageType.Joke)
             {
-                var joke = await Client.GetJoke();
+                var joke = await this.Client.GetJoke();
                 return new WrappedResponse<MOTD.Response>(new MOTD.Response()
                 {
                     Message = joke

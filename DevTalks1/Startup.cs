@@ -53,6 +53,8 @@ namespace DevTalks1
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.CustomSchemaIds(t=>t.FullName);
+                //var filePath = Path.Combine(System.AppContext.BaseDirectory, "DevTalks1.xml");
+                //c.IncludeXmlComments(filePath);
             });
         }
 
@@ -63,7 +65,7 @@ namespace DevTalks1
             //app.UseDeveloperExceptionPage();
             app.UseExceptionHandler(new ExceptionHandlerOptions()
             {
-                ExceptionHandler = this.ExceptionToJSON
+                ExceptionHandler = ExceptionToJSON
             });
 
             app.UseHttpsRedirection();
@@ -99,7 +101,7 @@ namespace DevTalks1
 
 
 
-        public async Task ExceptionToJSON(HttpContext context)
+        public static async Task ExceptionToJSON(HttpContext context)
         {
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
