@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTalks1", "DevTalks1\DevTalks1.csproj", "{86A812DF-C1B0-4F9E-A999-4A5057D37471}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTalksFinal", "DevTalks1\DevTalksFinal.csproj", "{86A812DF-C1B0-4F9E-A999-4A5057D37471}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{2DE9F9E7-1EE1-4CE4-8179-00BFCE59C45A}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAbstractions", "ClientAbstractions\ClientAbstractions.csproj", "{19B45D96-DB3F-498C-B38E-314AF1DE0235}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockJokeClient", "MockJokeClient\MockJokeClient.csproj", "{47C77252-06F7-40A4-84D3-42C8E1C9DEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTalksStarter", "DevTalksStarter\DevTalksStarter.csproj", "{2086CCF1-56F4-432B-A9DA-C359B3C1537E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{47C77252-06F7-40A4-84D3-42C8E1C9DEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47C77252-06F7-40A4-84D3-42C8E1C9DEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47C77252-06F7-40A4-84D3-42C8E1C9DEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2086CCF1-56F4-432B-A9DA-C359B3C1537E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2086CCF1-56F4-432B-A9DA-C359B3C1537E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2086CCF1-56F4-432B-A9DA-C359B3C1537E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2086CCF1-56F4-432B-A9DA-C359B3C1537E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

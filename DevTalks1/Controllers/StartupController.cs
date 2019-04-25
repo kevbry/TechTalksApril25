@@ -30,7 +30,7 @@ namespace DevTalks1.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<MOTD.Response>> MOTD(MOTD.Request request)
+        public async Task<ActionResult<MOTD.Response>> FetchMOTD(MOTD.Request request)
         {
             var wrapped = new WrappedRequest<MOTD.Request, MOTD.Response>(request);
             var result = await this.Mediator.Send(wrapped);
@@ -42,10 +42,10 @@ namespace DevTalks1.Controllers
         }
 
         /// <summary>
-        /// Fetches either a joke or a quote, depending on the requested message type
+        /// Retrieves a message of the day of the specified type
         /// </summary>
-        /// <param name="request">Identifies the requested message type, either joke or quote</param>
-        /// <returns>A message of the requested type</returns>
+        /// <param name="type">Either a joke, or a quote</param>
+        /// <returns>The text of the joke or quote</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

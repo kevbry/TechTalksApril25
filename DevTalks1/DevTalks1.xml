@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>DevTalks1</name>
+        <name>DevTalksFinal</name>
     </assembly>
     <members>
-        <member name="M:DevTalks1.Controllers.StartupController.MOTD(ViewModels.Features.Startup.MOTD.Request)">
+        <member name="M:DevTalks1.Controllers.StartupController.FetchMOTD(ViewModels.Features.Startup.MOTD.Request)">
             <summary>
             Fetches either a joke or a quote, depending on the requested message type
             </summary>
@@ -13,10 +13,10 @@
         </member>
         <member name="M:DevTalks1.Controllers.StartupController.MOTD(ViewModels.Features.Startup.MOTD.Request.MessageType)">
             <summary>
-            Fetches either a joke or a quote, depending on the requested message type
+            Retrieves a message of the day of the specified type
             </summary>
-            <param name="request">Identifies the requested message type, either joke or quote</param>
-            <returns>A message of the requested type</returns>
+            <param name="type">Either a joke, or a quote</param>
+            <returns>The text of the joke or quote</returns>
         </member>
     </members>
 </doc>

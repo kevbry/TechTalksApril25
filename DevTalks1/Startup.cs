@@ -18,7 +18,10 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using RequestHandlers;
+using RequestHandlers.Behaviors;
 using Swashbuckle.AspNetCore.Swagger;
+using ViewModels.Common;
+using ViewModels.Features.Startup;
 using ProblemDetails = ViewModels.Common.ProblemDetails;
 
 namespace DevTalks1
@@ -39,6 +42,9 @@ namespace DevTalks1
             //services.AddHttpClient<IJokeClient, DadJokeClient.DadJokeClient>();
             services.AddSingleton<IJokeClient, MockJokeClient.MockJokeClient>();
 
+            services.AddScoped(typeof(IPipelineBehavior<WrappedRequest<MOTD.Request, MOTD.Response>, WrappedResponse<MOTD.Response>>), typeof(RequestLoggingBehavior));
+
+            services.AddScoped(typeof(IPipelineBehavior<WrappedRequest<MOTD.Request, MOTD.Response>, WrappedResponse<MOTD.Response>>), typeof(MoreCowbellMOTDBehavior));
             services.AddMediatR(typeof(HandlerMarker).Assembly);
 
             services
@@ -53,12 +59,12 @@ namespace DevTalks1
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.CustomSchemaIds(t=>t.FullName);
-                //var filePath = Path.Combine(System.AppContext.BaseDirectory, "DevTalks1.xml");
-                //c.IncludeXmlComments(filePath);
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "DevTalks1.xml");
+                c.IncludeXmlComments(filePath,true);                
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        ///Configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 
@@ -83,23 +89,6 @@ namespace DevTalks1
                     template: "{controller=Startup}/{action=Index}/{id?}");
             });
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public static async Task ExceptionToJSON(HttpContext context)
         {
